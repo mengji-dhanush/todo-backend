@@ -71,8 +71,8 @@ app.post("/login", async (req, res) => {
     res
       .cookie("token", token, {
         httpOnly: true,
-        secure: false,
-        sameSite: "lax",
+        secure: true,
+        sameSite: "none",
       })
       .json({ message: "login successful" });
   } catch (err) {
