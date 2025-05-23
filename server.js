@@ -67,12 +67,11 @@ app.post("/login", async (req, res) => {
         expiresIn: "1h",
       }
     );
-
     res
       .cookie("token", token, {
         httpOnly: true,
-        secure: true,
-        sameSite: "none",
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       })
       .json({ message: "login successful" });
   } catch (err) {
