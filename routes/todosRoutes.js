@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
-import * as todosController from "../controllers/todosController";
-import { authenticate } from "../middlewares";
+import * as todosController from "../controllers/todosController.js";
+import { authenticate } from "../middlewares.js";
 
 router
   .route("/")
